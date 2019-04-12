@@ -1,0 +1,35 @@
+w<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{fragments/layout}">
+<head>
+<title>Upload</title>
+</head>
+<body>
+	<div layout:fragment="content" th:remove="tag">
+		<h1>Upload attendace v1</h1>
+		<div class="col-md-8 col-md-offset-2">
+			<h3>Input .csv file</h3>
+			<form id="formupload" method="post" th:action="@{/eva/upload}"
+				enctype="multipart/form-data">
+				<!-- COMPONENT START -->
+				<div class="form-group">
+					<div class="input-group input-file">
+						<span class="input-group-btn">
+							<button class="btn btn-default btn-choose" type="button">Choose</button>
+						</span> <input type="text" class="form-control" id="file-text"
+							placeholder='Choose a file...' /> <span class="input-group-btn">
+							<button class="btn btn-warning btn-reset" type="button">Reset</button>
+						</span>
+					</div>
+				</div>
+				<!-- COMPONENT END -->
+				<div class="form-group">
+					<button id="btnupload" type="submit" class="btn btn-primary"
+						disabled="disabled">Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

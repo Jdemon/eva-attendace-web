@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{fragments/layout}">
+<head>
+<title>Download</title>
+</head>
+<body>
+	<div layout:fragment="content" th:remove="tag">
+		<h1>Download attendance excel file</h1>
+		<div class="col-md-8 col-md-offset-2">
+			<h3>Download File</h3>
+			<span id="filedwn"> File : <a id="downloadLink"
+				th:href="@{'/eva/download/' + ${filename}}" th:text="${filename}"></a></span>
+		</div>
+		
+		<div class="col-md-8 col-md-offset-2">
+			<br>
+			<br>
+			<p> <a href="/" th:href="@{/eva}">Back to upload page</a></p>
+		</div>
+	</div>
+</body>
+</html>

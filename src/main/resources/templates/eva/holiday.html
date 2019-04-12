@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{fragments/layout}">
+<head>
+<title>EVA Official Holiday</title>
+</head>
+<body>
+	<div layout:fragment="content" th:remove="tag">
+		<h1 th:text="@{'EVA Official Holiday '+${yearSelected}}"></h1>
+		<hr>
+		<div class="dropdown">
+			<button class="btn btn-default dropdown-toggle" type="button"
+				data-toggle="dropdown" ><span th:text="${yearSelected}"></span>&nbsp;<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+				<li>
+				<a th:text="${year1}" th:href="@{'?year='+${year1}}"></a>
+				</li>
+				<li>
+				<a th:text="${year2}" th:href="@{'?year='+${year2}}"></a>
+				</li>
+				<li>
+				<a th:text="${year3}" th:href="@{'?year='+${year3}}"></a>
+				</li>
+			</ul>
+		</div>
+		<div class="col-md-8 col-md-offset-2">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th align="center" class="col-md-1">No.</th>
+						<th class="col-md-2">Date</th>
+						<th class="col-md-2">Holiday Weekday</th>
+						<th class="col-md-4">Holiday Description Thai</th>
+						<th class="col-md-4">Holiday Description</th>
+						<th class="col-md-1" sec:authorize="hasRole('ADMIN')" ></th>
+					</tr>
+				</thead>
+				<tbody>
+					<th:block th:each="data,iter : ${dataset}">
+						<tr>
+							<td align="center" th:text="@{(${iter.index}+1)+'.'}"></td>
+							<td th:id="@{(${iter.index}+1)+'date'}" th:text="${data.Date}"></td>
+							<td th:text="${data.HolidayWeekDayThai}"></td>
+							<td th:text="${data.HolidayDescriptionThai}"></td>
+							<td th:text="${data.HolidayDescription}"></td>
+							<td sec:authorize="hasRole('ADMIN')" >
+								<button type="button"
+									th:onclick="@{'deldate('+(${iter.index}+1)+')'}"
+									id="holidelete" class="btn btn-danger">ลบ</button>
+							</td>
+						</tr>
+					</th:block>
+					<tr sec:authorize="hasRole('ADMIN')" >
+						<td></td>
+						<td><input type="date" id="addholidate" class="form-control">
+						</td>
+						<td>-</td>
+						<td><input type="text" id="addholidesth" class="form-control"
+							placeholder="Ex. วันพิเศษ"></td>
+						<td><input type="text" id="addholides" class="form-control"
+							placeholder="Ex. Special Day"></td>
+						<td>
+							<button type="button" id="holiadd" class="btn btn-info">เพิ่ม</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<hr>
+			<hr>
+		</div>
+	</div>
+	</div>
+</body>
+</html>

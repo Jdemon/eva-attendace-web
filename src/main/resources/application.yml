@@ -1,0 +1,37 @@
+server:
+  port: 80
+
+spring:
+  http:
+    multipart:
+      max-file-size: 512KB
+      max-request-size: 512KB
+  thymeleaf:
+    cache: false
+    check-template: true
+    check-template-location: true
+    content-type: text/html
+    enabled: true
+    encoding: UTF-8
+    mode: HTML
+    prefix: classpath:/templates/
+    suffix: .html
+    # excluded-view-names:
+    # template-resolver-order:
+    # view-names:
+logging:
+  level:
+    root: WARN
+    com.eva: DEBUG
+    org.springframework.web: INFO
+    org.springframework.security: INFO
+base:
+  path: /clouddrive
+download: 
+  path: ${base.path}/download/
+temp:
+  path: ${base.path}/temp/
+  file:
+    delflag: N
+resource:
+  path: ${base.path}/resource/
