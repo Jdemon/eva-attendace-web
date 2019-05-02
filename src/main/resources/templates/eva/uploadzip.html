@@ -7,10 +7,10 @@
 </head>
 <body>
 	<div layout:fragment="content" th:remove="tag">
-		<h1>Upload attendace csv</h1>
+		<h1>Upload attendace zip</h1>
 		<div class="col-md-8 col-md-offset-2">
-			<h3>Input .csv file</h3>
-			<form id="formupload" method="post" th:action="@{/eva/upload}"
+			<h3>Input .zip file</h3>
+			<form id="formupload" method="post" th:action="@{/eva/upload/zipfile}"
 				enctype="multipart/form-data">
 				<!-- COMPONENT START -->
 				<div class="form-group">

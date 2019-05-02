@@ -11,7 +11,7 @@
 		<div class="col-md-8 col-md-offset-2">
 			<h3>Download File</h3>
 			<span id="filedwn"> File : <a id="downloadLink"
-				th:href="@{'/eva/download/' + ${filename}}" th:text="${filename}"></a></span>
+				th:href="@{'/eva/download?name=' + ${filename}}" th:text="${filename}"></a></span>
 		</div>
 		
 		<div class="col-md-8 col-md-offset-2">
