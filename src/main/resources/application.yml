@@ -32,6 +32,6 @@ download:
 temp:
   path: ${base.path}/temp/
   file:
-    delflag: Y
+    delflag: N
 resource:
   path: ${base.path}/resource/

@@ -249,9 +249,15 @@ public class ConvertDataProcess {
 								int min = Integer.valueOf(time[1]);
 								
 								if(hour > 8){
+									if(hour == 9 && min == 0) {
+										beangen.setLate("LATE");
+										beangen.setLateTime(30);
+									}else {
+										beangen.setLate("LEAVE");
+									}
+								}else if(hour == 8 && min > 30){
 									beangen.setLate("LATE");
-								}else if(hour ==8 && min > 30){
-									beangen.setLate("LATE");
+									beangen.setLateTime(min-30);
 								}
 								beangen.setTime("\""+inputs[6]+"\"");
 							}else if(kind.equalsIgnoreCase("Out") && !beangen.isHoliday()){//&& beangen.getPunchKind().equalsIgnoreCase("Punch Out")){
@@ -407,6 +413,7 @@ public class ConvertDataProcess {
 				beanv2.setOFF_1(inputs[7]);
 				beanv2.setREMARK_1(inputs[8]);
 				beanv2.setOT_1(inputs[9]);
+				beanv2.setLATE_TIME(inputs[10]);
 				
 				beanv2.setSet1(true);
 			}else if(beanv2.isSet1() && !beanv2.isSet2() &&

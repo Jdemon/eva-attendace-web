@@ -14,6 +14,7 @@ public class EVADataConvertBean {
 	private String comment = EVAConstants.BLANK;
 	private String ot = EVAConstants.BLANK;
 	private String late = EVAConstants.BLANK;
+	private Integer lateTime = 0;
 	private boolean isHoliday = false;
 	
 	public EVADataConvertBean(){
@@ -114,6 +115,14 @@ public class EVADataConvertBean {
 		this.ot = ot;
 	}
 
+	public Integer getLateTime() {
+		return lateTime;
+	}
+
+	public void setLateTime(Integer lateTime) {
+		this.lateTime = lateTime;
+	}
+
 	@Override
 	public String toString() {
 		String COMMA = ",";
@@ -136,7 +145,8 @@ public class EVADataConvertBean {
 				.append(COMMA).append(time)
 				.append(COMMA).append(comment)
 				.append(COMMA).append(late)
-				.append(COMMA).append(ot);
+				.append(COMMA).append(ot)
+				.append(COMMA).append(lateTime != 0 ? lateTime.toString():"");
 		
 		return stringBuilder.toString();
 	}

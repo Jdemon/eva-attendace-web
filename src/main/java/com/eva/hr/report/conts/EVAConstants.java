@@ -45,6 +45,7 @@ public class EVAConstants {
 	public static final String OT_ALL = "OT_ALL";
 	public static final String REMARK_1 = "REMARK_1";
 	public static final String REMARK_2 = "REMARK_2";
+	public static final String LATE_TIME = "LATE_TIME";
 	
 	public static StringBuilder HEADER_CSV2 = new StringBuilder(EMP_CODE)
 			.append(COMMA).append(EMP_NAME)
@@ -62,6 +63,7 @@ public class EVAConstants {
 			.append(COMMA).append(OT_2)
 			.append(COMMA).append(REMARK_2)
 			.append(COMMA).append(OFF_ALL)
-			.append(COMMA).append(OT_ALL);
+			.append(COMMA).append(OT_ALL)
+			.append(COMMA).append(LATE_TIME);
 
 }

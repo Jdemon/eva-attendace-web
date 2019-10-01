@@ -21,6 +21,7 @@ public class EVATempleBean {
 	private String OT_ALL = EVAConstants.BLANK;
 	private String REMARK_1 = EVAConstants.BLANK;
 	private String REMARK_2 = EVAConstants.BLANK;
+	private String LATE_TIME = EVAConstants.BLANK;
 	private boolean isSet1 = false;
 	private boolean isSet2 = false;
 	
@@ -160,6 +161,14 @@ public class EVATempleBean {
 		REMARK_2 = rEMARK_2;
 	}
 	
+	public String getLATE_TIME() {
+		return LATE_TIME;
+	}
+
+	public void setLATE_TIME(String lATE_TIME) {
+		LATE_TIME = lATE_TIME;
+	}
+
 	public boolean isSet1() {
 		return isSet1;
 	}
@@ -193,7 +202,8 @@ public class EVATempleBean {
 				.append(EVAConstants.COMMA).append(OT_2)
 				.append(EVAConstants.COMMA).append(REMARK_2)
 				.append(EVAConstants.COMMA).append(OFF_ALL)
-				.append(EVAConstants.COMMA).append(OT_ALL).toString();
+				.append(EVAConstants.COMMA).append(OT_ALL)
+				.append(EVAConstants.COMMA).append(LATE_TIME).toString();
 	}
 	
 	public String getHeader(){
