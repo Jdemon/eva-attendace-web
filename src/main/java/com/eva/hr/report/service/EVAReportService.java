@@ -172,7 +172,7 @@ public class EVAReportService {
 
 		String tempFilePath = convertDataProcess.processStepFour(fileData, name);
 
-		byte[] data = convertDataProcess.generateReport(resource + "EVAReport.jasper", tempFilePath);
+		byte[] data = convertDataProcess.generateReport(resource + "EVANewAttendance.jasper", tempFilePath);
 
 		FileUtils.writeByteArrayToFile(new File(getDwPath(name+".xlsx")), data);
 
